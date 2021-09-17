@@ -1,9 +1,0 @@
-
-
-
-Hector Delgado R. 
-
-Soy profesional Medico Veterinario Zootecnista, con experiencia en el manejo y análisis de datos.  Después de participar en varios proyectos de investigación relacionados con la longevidad y bienestar del ganado lechero (Canada) y la detección precoz de algunas enfermedades infecciosas en Ganado lechero (EE UU), tuve que adquirir experiencia en el manejo de grandes volúmenes de datos, su edición, normalización e integración para su posterior análisis.  Para ello he aprovechado los recursos ofrecidos por la estadística inferencial, los análisis de supervivencia y últimamente las técnicas de Machine Learning.  El curso de MinTic será muy útil puesto que espero poner en practica lo aprendido  desarrollando herramientas  que ayuden a los productores pecuarios a tomar mejores decisiones técnicas y administrativas.  
-
-
-
