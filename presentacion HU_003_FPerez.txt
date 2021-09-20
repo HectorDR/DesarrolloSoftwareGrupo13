@@ -1,0 +1,5 @@
+Juan fernando
+
+edad :21
+
+estudiante de ingenieria mecanica y tecnologo en mecatronica
