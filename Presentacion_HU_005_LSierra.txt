@@ -1,0 +1,8 @@
+
+
+Lissette Sierra
+
+Ingeniera Ambiental. Estudiante de maestria en desarrollo sustentable y gestion ambiental.  
+Experiencia en gestion ambiental de residuos solidos, manejo de sistemas de información geografica.
+Mis conocimientos en manejo de grandes cantidades de datos sonrelacionados a series de tiempo de precipitacion, temperatura y variables climaticas en general, actualmente me encuentro manejando datos sobre contaminantes atmosfericos.
+La capacitacion de Min Tic me permite aprender herramientas para manejar de manera mas facil y rapida las series de tiempo y poder optimizar procesos en ArcGIS y QGIS.
