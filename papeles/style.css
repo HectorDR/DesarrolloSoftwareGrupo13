@@ -1,0 +1,12 @@
+img {
+  padding: 50px;
+  width: 400px;
+  height: 500px;
+}
+.container {
+  max-width: 900px;
+}
+.creditos {
+  text-decoration: none;
+  color: darkgreen;
+}
