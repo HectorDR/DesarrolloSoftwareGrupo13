@@ -1,0 +1,44 @@
+
+.main-section{
+  margin:0 auto;
+  margin-top:5%;
+  
+}
+.card{
+opacity: .95;
+  background-color: #dcedc8;
+}
+.card-body{
+  background-color: #dcedc8;
+  box-shadow: 0px 0px 3px #8bc34a;
+}
+
+label{
+font-weight: bold;
+  
+}
+
+.nav-tabs .nav-item a:not(.active){
+background-color: #ffc107;
+}
+
+.nav-tabs{
+border-bottom:0px;
+  
+}
+
+.pie {
+  background-color: gray;
+  color: white;
+}
+
+.company-info h3,
+.company-info ul,
+.company-info .brand {
+  text-align: center;
+}
+
+.btnTerminarGuardarVenta {
+  background-color: #8bc34a;
+    }
+  

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Editor de productos</title>
+	
+	<!--JQUERY-->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script 
+		src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script 
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	
+	<!-- Los iconos tipo Solid de Fontawesome-->
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	
+	<!-- Nuestro css-->
+	<link rel="stylesheet" type="text/css" href="css/stilo.css"
+		th:href="@{css/stilo.css}">
+
+	<!-- DATA TABLE -->
+	
+	<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script type="text/javascript">
+	    $(document).ready(function() {
+	        
+	        $('#userList').DataTable();
+	    } );
+	</script>
+    
+</head>
+<body>
+    
+    <header class>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8BC34A">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"><h1>Papeles Gsus Survivors</h1></a>
+           
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link " aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Ventas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Productos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href = "#">Usuarios</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      
+      </header>
+
+<!--Aqui comienza la tabla -->
+
+	<div class="container">
+	<div class="mx-auto col-sm-12 main-section" id="myTab" role="tablist">
+		<ul class="nav nav-tabs justify-content-end">
+			<li class="nav-item">
+			<a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Producto Seleccionado</a>
+			</li>
+			<li class="nav-item">
+			<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Editar Informacion del Producto</a>				   	
+			</li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+				<div class="card">
+					<div class="card-header">
+						<h4>Producto</h4>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table id="userList" class="table table-bordered table-hover table-striped">
+			
+								<tr>
+                  <th scope="col">Fecha</th>
+									<th scope="col">ID Producto</th>
+									<th scope="col">Nombre/Descripción</th>
+									<th scope="col">Cantidad</th>
+									<th scope="col">Precio Unitario</th>
+									<th scope="col">Observaciones</th>
+                                    
+                  <th scope="col">Editar</th>
+									
+								</tr>
+					
+								<tbody>
+								<tr>
+									<th scope="row">2021-09-30</th>
+									<td>PAP0001</td>
+									<td>PAPEL BOND * 100</td>
+									<td>12000</td>
+									<td>3500</td>
+                  <td>IMPORTADO DE CANADA</td>
+									<td>
+										<a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+									</td>
+								</tr>
+								</tbody>
+                               
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+				<div class="card">
+					<div class="card-header">
+						<h4>Producto a editar</h4>
+					</div>
+					<div class="card-body">
+						<form class="form" role="form" autocomplete="off">
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Fecha</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="date"placeholder="Editar fecha">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">ID Producto</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text" placeholder="Editar ID del producto" >
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Nombre/Descripcion</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="email"placeholder="Editar el nombre del producto">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Cantidad</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text"placeholder="Editar cantidad de unidades">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Precio Unitario</label>
+								<div class="col-lg-9">
+									<input class="form-control" type="text"placeholder="Editar precio unitario">
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">Observaciones</label>
+							
+                  <textarea name="Editar Observaciones"  rows="5"></textarea>                
+         
+							</div>
+							<div class="form-group row">
+								<div class=" text-center">
+									<p><input type="reset" class="  btn btn-success" value="Cancelar"> </p>
+                  <br>
+                  <p><input type="submit" class=" btn btn-warning" 
+										value="Guardar Informacion" id="Guardar"></p>
+								    
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+<br>
+
+<footer class = "pie">
+    <div class="company-info">
+    <h3>Comuniquese con nosotros</h3>
+    <ul>
+        <li> <i class = "fa fa-road"></i> Calle 45 # 98 - 98 Bodega 10 Bogotá</li>
+        <li> <i class = "fa fa-phone"></i> Tel 601 456 7896</li>
+        <li> <i class = "fa fa-envelope"> </i> gsus@survivors.com</li>
+    </ul>
+
+</div>
+</footer>
+
+<script src="js/sweetAlert.js"></script>
+    
+</body>
+</html>

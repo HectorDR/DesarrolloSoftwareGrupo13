@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../15_Seleccion_producto"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "16_Edicion_producto"
+	}
+}

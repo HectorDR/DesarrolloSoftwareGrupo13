@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Registro Venta</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css"
+		th:href="@{css/style.css}">
+</head>
+<body>
+    
+  <header class>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8BC34A">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"><h1>Papeles Gsus Survivors</h1></a>
+       
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ventas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href = "#">Usuarios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  </header>
+<br>
+
+<br>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row">
+            <div class="col-sm-12">
+               <div class="card">
+                  <div class="card-header p-2">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>  Registra Nueva Venta
+
+                      <div class="float-right">
+                          <button  style="background-color: #ffc107;" id="btnTerminarGuardarVenta" class="btn-custom btn-primary btn-sm-custom float-right"><i class="fa fa-print" aria-hidden="true"></i> Imprimir y Terminar Venta
+                          </button>
+                      </div>
+                  </div>
+                  <br>
+                            <div class="col-sm-3">
+                                <div class="input-group input-group-sm mb-2">
+                                  <div class="input-group-prepend">
+                                     <label class="input-group-text" for="inputGroupSelect01">Fecha de Venta</label>
+                                  </div>
+                                  <input id="txtfechaventa"  type="text" class="form-control" >
+                                </div>
+                            </div>
+                          </div>
+                                      <div class="row collapse" id="collapse2">
+                                          <input id="txtIdUsuario" type="hidden" value="0" />
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRucProveedor" class="col-form-label col-form-label-sm">Nombre:</label>
+                                              <label class="form-control form-control-sm model mb-1" readonly id="lblempleadonombre" ></label>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Apellido:</label>
+                                              <label class="form-control form-control-sm model mb-1" readonly id="lblempleadoapellido" ></label>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Correo:</label>
+                                              <label class="form-control form-control-sm model mb-1" readonly id="lblempleadocorreo" ></label>
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      <div class="row mt-2">
+                            <div class="col-sm-6">
+                                <div class="card">
+                                  <div class="card-body p-2">
+                                      <h6 class="card-title mb-1">Datos del cliente</h6>
+                                      <div class="row">
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Tipo Documento:</label>
+                                              <select class="form-control form-control-sm model" id="cboclientetipodocumento" name="Rol">
+                                                  <option value="DNI">Tarjeta de Identidad</option>
+                                                  <option value="Carnet Extranjeria">Cedula de Ciudadania</option>
+                                                  <option value="RUC">NIT</option>
+                                              </select>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Numero Documento: <span class="required">*</span> </label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtclientedocumento" name="RazonSocial" autocomplete="off">
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Nombres: <span class="required">*</span></label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtclientenombres" name="RazonSocial" autocomplete="off">
+                                            </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-sm-8">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Direccion:</label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtclientedireccion" name="clientedireccion" autocomplete="off">
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtRazonSocialProveedor" class="col-form-label col-form-label-sm">Telefono:</label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtclientetelefono" name="RazonSocial" autocomplete="off">
+                                            </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="card">
+                                  <div class="card-body p-2">
+                                      <h6 class="card-title mb-1">Detalle Producto</h6>
+                                      <div class="row">
+                                          <input id="txtIdProducto" type="hidden" value="0" />
+                                          <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                              <label for="txtproductocodigo" class="col-form-label col-form-label-sm">Codigo: <span class="required">*</span></label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtproductocodigo" name="Codigo" >
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                              <label for="txtproductonombre" class="col-form-label col-form-label-sm">Nombre:</label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtproductonombre" name="Nombre" >
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="form-group mb-0">
+                                              <label for="txtproductodescripcion" class="col-form-label col-form-label-sm">Descripcion:</label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtproductodescripcion" name="Descripcion" >
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-1">
+                                              <div class="form-group mb-0">
+                                                  <label for="btnBuscarProducto" class="col-form-label col-form-label-sm invisible">Buscar:</label>
+                                                  <button style="background-color: #ffc107;" id="btnBuscarProducto" type="button" class="btn btn-sm btn-secondary btn-block">Buscar</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                              <label for="txtproductostock" class="col-form-label col-form-label-sm">Observaciones:</label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtproductostock" name="Codigo" >
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                              <label for="txtproductoprecio" class="col-form-label col-form-label-sm">Precio:</label>
+                                              <input type="text" class="form-control form-control-sm model" id="txtproductoprecio"  name="Nombre" >
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-3">
+                                            <div class="form-group mb-0">
+                                              <label for="txtproductocantidad" class="col-form-label col-form-label-sm">Cantidad: <span class="required">*</span></label>
+                                              <input type="text" class="form-control form-control-sm model"  id="txtproductocantidad" name="Descripcion" >
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-1">
+                                              <div class="form-group mb-0">
+                                                  <label for="btnAsignar" class="col-form-label col-form-label-sm invisible">Buscar:</label>
+                                                  <button style="background-color: #ffc107;" id="btnAgregar" type="button" class="btn btn-sm btn-success btn-block"><i class="fa fa-plus-circle" aria-hidden="true"></i> Agregar</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                      <hr />
+                        <div class="row mt-3">
+                            <div class="col-sm-12">
+                                <div class="table-responsive-sm">
+                                    <table id="tbVenta" class="table table-striped table-bordered nowrap table-sm" style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Cantidad</th>
+                                                <th>Producto</th>
+                                                <th>Descripcion</th>
+                                                <th>Precio Unidad</th>
+                                                <th>Importe Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">01-10-2021</th>
+                                            <td>12000</td>
+                                            <td>PAP0001</td>
+                                            <td>Papel resistente</td>
+                                            <td>3500</td>
+                                            <td>3500</td>
+                                          </tr>
+                                          </tbody>
+                                          <tbody>
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row">29-09-2021</th>
+                                                <td>250000</td>
+                                                <td>PAP65489</td>
+                                                <td>Papel humedo</td>
+                                                <td>128.500</td>
+                                                <td>128.500</td>
+                                              </tr>
+                                              </tbody>
+                                              <tbody>
+                                                <tbody>
+                                                  <tr>
+                                                    <th scope="row">27-09-2021</th>
+                                                    <td>540000</td>
+                                                    <td>PAP32654</td>
+                                                    <td>Papel para corrugar</td>
+                                                    <td>629.450</td>
+                                                    <td>629.450</td>
+                                                  </tr>
+                                                  </tbody>
+                                                  <tbody>
+                                                            
+                                    </table>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                      <hr />
+                      
+          
+    <script src="Controlador/frmCrearVenta/frmCrearVenta.js"></script>
+</asp:Content>
+<br>
+<footer class = "pie">
+  <div class="company-info">
+  <h3>Comuniquese con nosotros</h3>
+  <ul>
+      <li> <i class = "fa fa-road"></i> Calle 45 # 98 - 98 Bodega 10 Bogotá</li>
+      <li> <i class = "fa fa-phone"></i> Tel 601 456 7896</li>
+      <li> <i class = "fa fa-envelope"> </i> gsus@survivors.com</li>
+  </ul>
+
+   </div>
+</footer>
+
+</body>
+</html>

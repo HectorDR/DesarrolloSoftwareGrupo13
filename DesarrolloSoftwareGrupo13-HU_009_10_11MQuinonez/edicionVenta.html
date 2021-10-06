@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Confirmación de edición de productos</title>
+
+  <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Los iconos tipo Solid de Fontawesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+  <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <!-- Nuestro css-->
+  <link rel="stylesheet" type="text/css" href="css/stilo.css" th:href="@{css/stilo.css}">
+
+  <!-- DATA TABLE -->
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+</head>
+
+<body>
+
+  <header class>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #8BC34A">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <h1>Papeles Gsus Survivors</h1>
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link " aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Ventas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Usuarios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="mx-auto col-sm-12 main-section" id="myTab" role="tablist">
+      <ul class="nav nav-tabs justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list"
+            aria-selected="false">Ventas</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+          <div class="card">
+            <div class="card-header">
+              <h4>Ventas</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table id="userList" class="table table-bordered table-hover table-striped">
+
+                  <tr>
+                    <th scope="col">ID Venta</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Cliente</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Acciones</th>
+
+                  </tr>
+
+                  <tbody>
+                    <tr>
+                      <th scope="row">04554</th>
+                      <td>2018-07-22</td>
+                      <td>18435866</td>
+                      <td id="total"></td>
+                      <td>
+                        <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myModal" onclick="emptyAddProduct()">
+                          <i class="fas fa-edit"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+
+                </table>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Edición Venta: 04554</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="fechaVenta" class="form-label">Fecha Venta:</label>
+              <input id="fechaVenta" class="form-control" type="date" value="2018-07-22" readonly>
+            </div>
+            <div class="col-md-6">
+              <label for="idCliente" class="form-label">Cliente:</label>
+              <input id="idCliente" class="form-control" type="text" value="18435866" readonly>
+            </div>
+            <div class="col-md-12">
+              <label for="" class="form-label">Productos</label>
+              <br />
+              <hr />
+              <button class="btn btn-sm btn-primary" onclick="showAddProduct()">
+                <i class="fas fa-edit"></i> Agregar producto
+              </button>
+              <div class="row col-md-12" id="showAddProduct">
+                <div class="col-md-6">
+                  <label for="selectPrd" class="form-label">Producto</label>
+                  <select id="selectPrd" class="form-control">
+                    <option value="PAP0001-PAPEL BOND * 100-3500">PAPEL BOND * 100</option>
+                    <option value="PAP0002-PAPEL BOND * 200-3600">PAPEL BOND * 200</option>
+                    <option value="PAP0003-PAPEL BOND * 300-3700">PAPEL BOND * 300</option>
+                    <option value="PAP0004-PAPEL BOND * 400-3800">PAPEL BOND * 400</option>
+                    <option value="PAP0005-PAPEL BOND * 500-300">PAPEL BOND * 500</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label for="cantPrd" class="form-label">Cantidad</label>
+                  <input id="cantPrd" type="number" class="form-control" value="0">
+                </div>
+                <br />
+                <div class="col-md-12" style="text-align: right;">
+                  <button class="btn btn-sm btn-primary" onclick="addProduct()">Agregar</button>
+                </div>
+              </div>
+              <br />
+              <hr />
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID Producto</th>
+                    <th scope="col">Nombre/Descripción</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio Unitario</th>
+                
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="tbodyProducts">
+                </tbody>
+              </table>
+              <label>Total: </label><span id="totalEdit"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            <i class="far fa-times-circle"></i> Cancelar
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="save()">
+            <i class="fas fa-paper-plane"></i> Guardar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="pie">
+    <div class="company-info">
+      <h3>Comuniquese con nosotros</h3>
+      <ul>
+        <li> <i class="fa fa-road"></i> Calle 45 # 98 - 98 Bodega 10 Bogotá</li>
+        <li> <i class="fa fa-phone"></i> Tel 601 456 7896</li>
+        <li> <i class="fa fa-envelope"> </i> gsus@survivors.com</li>
+      </ul>
+
+    </div>
+  </footer>
+
+
+
+</body>
+
+<script>
+  let products = [
+    {
+      id: 'PAP0001',
+      name: 'PAPEL BOND * 100',
+      cant: 2,
+      price: 3500
+    }
+  ];
+
+  hideAddProduct();
+  chargeProducts();
+
+  function chargeProducts() {
+    let product = '';
+    let total = 0;
+    $("#tbodyProducts").html(product);
+    for (let i = 0; i < products.length; i++) {
+      let prd = products[i];
+      total += parseInt(prd.price) * parseInt(prd.cant);
+      product += '<tr>' +
+        '<td>' + prd.id + '</td>' +
+        '<td>' + prd.name + '</td>' +
+        '<td>' + prd.cant + '</td>' +
+        '<td>' + prd.price + '</td>' +
+        '<td>' +
+        '<button class="btn btn-sm btn-danger">' +
+        '<i class="fas fa-trash" onclick="removeProduct(\'' + prd.id + '\')"></i>' +
+        '</button>' +
+        '</td>' +
+        '</tr>';
+    }
+    $("#total").html(total);
+    $("#totalEdit").html(total);
+    $("#tbodyProducts").html(product);
+  }
+
+  function removeProduct(id) {
+    swal({
+      title: "Seguro quiere eliminar el producto?",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      cancelButtonText: "Cancelar",
+      confirmButtonText: "Si",
+      closeOnConfirm: true
+    }, function (isConfirm) {
+      if (isConfirm) {
+        let index = products.findIndex(tb => tb.id === id);
+        if (index !== -1) {
+          products.splice(index, 1);
+          chargeProducts();
+        }
+      }
+      swal.close();
+    });
+  }
+
+  function showAddProduct() {
+    $("#showAddProduct").show();
+  }
+
+  function hideAddProduct() {
+    $("#showAddProduct").hide();
+  }
+
+  function addProduct() {
+    let cant = $("#cantPrd").val();
+    let selectProduct = $("#selectPrd").val().split('-');
+    if (cant === '0') {
+      swal({
+        type: "warning",
+        title: 'Debe ingresar una cantidad',
+        showConfirmButton: true,
+      });
+    } else if (validateExistProduct(selectProduct[0])) {
+      swal({
+        type: "warning",
+        title: 'Ya se ha agregado el producto',
+        showConfirmButton: true,
+      });
+    } else {
+      let prd = {
+        id: selectProduct[0],
+        name: selectProduct[1],
+        cant: parseInt(cant),
+        price: selectProduct[2]
+      };
+      products.push(prd);
+      emptyAddProduct();
+      chargeProducts();
+    }
+  }
+
+  function validateExistProduct(id) {
+    let index = products.findIndex(tb => tb.id === id);
+    if (index !== -1) {
+      return true;
+    }
+    return false;
+  }
+
+  function emptyAddProduct() {
+    hideAddProduct();
+    $("#cantPrd").val(0);
+  }
+
+  function save() {
+    swal({
+      type: "success",
+      title: 'Se ha guardado la informacion correctamente',
+      showConfirmButton: true,
+    });
+  }
+
+</script>
+
+
+</html>
