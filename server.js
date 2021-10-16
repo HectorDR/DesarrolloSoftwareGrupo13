@@ -4,24 +4,34 @@
 
 
 import Express from 'express';
-import { MongoClient,ObjectId } from 'mongodb';
+
 import  Cors from 'cors';
+import dotenv from 'dotenv';
+import {conectarBD, getDB} from  './db/db.js';
+import rutasProducto from './views/productos/rutas.js';
+
+dotenv.config({path:'./.env'});
 
 // crear una instancia de la clase mongodb
-const stringConexion = 'mongodb+srv://HectorDB:base123@gsussurvivors.5aqj3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+//const stringConexion = process.env.DATABASE_URL;
 
-const client = new MongoClient(stringConexion,{
+/*const client = new MongoClient(stringConexion,{
   useNewUrlParser:true,
   useUnifiedTopology:true,
-});
-let baseDeDatos;
+});*/
+
+
+//let baseDeDatos;
 const app = Express();
 //para poder recibir la informacion en json y luego enviarla hay que usar Express.json
 app.use(Express.json());
 app.use(Cors());
+app.use(rutasProducto);
 
+/*
 app.get('/productos',(req, res)=>{
   console.log("alguien hizo get en la ruta /productos"); //con find puedo hacer los filtros eje por id o nombre o fecha
+  const baseDeDatos = getDB();
   baseDeDatos.collection("producto").find({}).limit(50).toArray((err,result)=>{
     if (err){
       res.status(500).send('Error consultado los productos');
@@ -45,6 +55,7 @@ app.post("/productos/nuevo",(req, res)=>{
       Object.keys(datosProducto).includes('preciou') 
       ){
        //implementar codigo para crear producto en la BD
+       const baseDeDatos = getDB();
        baseDeDatos.collection('producto').insertOne(datosProducto,(err, result)=>{
         if(err){
           console.error(err);
@@ -71,7 +82,8 @@ const filtroProducto = {_id: new ObjectId(edicion.id)};
 delete edicion.id;
 const operacion = {
   $set:edicion,
-}
+};
+const baseDeDatos = getDB();
 baseDeDatos.collection('producto').findOneAndUpdate(filtroProducto,operacion,{upsert:true, returnOriginal:true}, (err,result)=>{
 if(err){
 console.error("error actualizando el vehiculo",err);
@@ -89,6 +101,7 @@ else{
 //Eliminar
 app.delete('/productos/eliminar',(req,res)=>{
   const filtroProducto = {_id: new ObjectId(req.body.id)};
+  const baseDeDatos = getDB();
   baseDeDatos.collection('producto').deleteOne(filtroProducto,(err,result)=>{
     if (err){
       console.error(err);
@@ -105,23 +118,17 @@ app.delete('/productos/eliminar',(req,res)=>{
 
 
 
-//una vez que se crea la bd y se le dan los caminos se debe conectar para ello se crea la sgte funcion
+una vez que se crea la bd y se le dan los caminos se debe conectar para ello se crea la sgte funcion*/
+
+
 
 const main =()=>{
-  client.connect((err,db)=>{
-    if(err){
-      console.error('Error conectando a la base de datos');
-      return 'error';
-    }
-    baseDeDatos = db.db('productos');
-    console.log('baseDeDatos exitosa');
-  
-  return app.listen(5000, ()=> {
-    console.log('escuchando puerto 5000');
+  return app.listen(process.env.PORT, ()=> {
+    console.log(`escuchando puerto ${process.env.PORT}`);
   });
-});
+
 };
 
-main();
+conectarBD(main);
 
 
