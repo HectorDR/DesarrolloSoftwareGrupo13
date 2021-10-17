@@ -1,0 +1,25 @@
+{
+  id:  "PAP0001	"    , 
+  nombre: 'Papel resistente	',
+  cantidad: "12000",
+  precioUnidad: "3500",
+  importeTotal: "3500" ,
+  fecha: "01-10-2021",
+
+},
+{
+  id:  'PAP65489'    , 
+  nombre: 'Papel humedo	',
+  cantidad: "250000",
+  precioUnidad: "128.500",
+  importeTotal: "128.500",
+  fecha: "29-09-2021",
+},
+{
+  id:  'PAP32654'    , 
+  nombre: 'Papel para corrugar	',
+  cantidad: "540000",
+  precioUnidad: "629.450",
+  importeTotal: "629.450" ,
+  fecha: "27-09-2021",
+},

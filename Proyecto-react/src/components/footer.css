@@ -1,0 +1,10 @@
+.pie {
+    background-color: gray;
+    color: white;
+  }
+  
+  .company-info h3,
+  .company-info ul,
+  .company-info .brand {
+    text-align: center;
+  }
